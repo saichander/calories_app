@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+<div class="left_menu">
+<nav class = "main_list">
+  <ul>
+    <li><%= link_to "TDEE calculator",'#' %></li>
+    <li><%= link_to "Food List", '#' %></li>
+    <li><%= link_to "Workout Videos",'#' %></li>
+    <li><%= link_to "Gallery",'#' %></li>
+    <ul>
+</nav>
+</div>
+  <h1 class ="home_main">logged in</h1>
+<% else %>
+<div class="home">
+<h1>Welome to Calories App</h1>
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary sign" %>
+</div>
+<% end %>

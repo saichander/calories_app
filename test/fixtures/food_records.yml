@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quantity: 1.5
+  calculated_calories: 1
+  intake_date: 2016-03-10
+
+two:
+  quantity: 1.5
+  calculated_calories: 1
+  intake_date: 2016-03-10
