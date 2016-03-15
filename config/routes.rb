@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root 'static_pages#home'
+
   devise_scope :user do
     get "/login" => "devise/sessions#new"
     get "/signup" => "devise/registrations#new"
   end
-
+  resources :user do
+    resources :body_metrics
+  end
+  #get "/body_metrics" =>  'body_metrics#new'
+  #resources :body_metrics
+  #get "/show_body_metrics" => 'body_metrics#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -3,7 +3,7 @@ class CreateBodyMetrics < ActiveRecord::Migration
     create_table :body_metrics do |t|
       t.integer :height
       t.integer :weight
-      t.string :Activity_level
+      t.float :activity_level
       t.integer :calories_required
 
       t.timestamps null: false

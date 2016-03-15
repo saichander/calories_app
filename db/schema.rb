@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311160427) do
+ActiveRecord::Schema.define(version: 20160314091646) do
 
   create_table "body_metrics", force: :cascade do |t|
     t.integer  "height"
     t.integer  "weight"
-    t.string   "Activity_level"
+    t.float    "activity_level"
     t.integer  "calories_required"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "user_id"
   end
 
   create_table "food_items", force: :cascade do |t|
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160311160427) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
