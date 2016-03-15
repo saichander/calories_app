@@ -1,0 +1,12 @@
+<%= form_for(@food_item) do |f|%>
+  <%= f.label :item %>
+  <%= f.text_field :item %><br />
+  <%= f.label :quantity%>
+  <%= f.number_field :quantity %><br />
+  <%= f.label :metrics%>
+  <%= f.text_field :metrics %><br />
+  <%= f.label :calories %>
+  <%= f.number_field :calories %><br />
+  <%= f.submit "Add Food Item" %>
+<% end %>
+

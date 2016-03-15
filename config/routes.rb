@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users
   root 'static_pages#home'
 
@@ -10,6 +11,9 @@ Rails.application.routes.draw do
   resources :user do
     resources :body_metrics
   end
+
+  resources :food_items
+  get "/food_items" => "food_items#index"
   #get "/body_metrics" =>  'body_metrics#new'
   #resources :body_metrics
   #get "/show_body_metrics" => 'body_metrics#show'
