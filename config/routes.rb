@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   devise_for :users
   root 'static_pages#home'
 
@@ -10,6 +11,10 @@ Rails.application.routes.draw do
   end
   resources :user do
     resources :body_metrics
+  end
+
+  resources :user do
+    resources :food_records
   end
 
   resources :food_items

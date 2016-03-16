@@ -7,7 +7,7 @@ class BodyMetricsController < ApplicationController
     @body_metric = current_user.build_body_metric(body_metric_params)
     @body_metric.save
     flash[:info] = "calculated"
-    redirect_to user_body_metric_path(@body_metric.id, current_user.id)
+    redirect_to user_body_metric_path(current_user.id,@body_metric.id)
   end
 
   def show

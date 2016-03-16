@@ -1,0 +1,9 @@
+<%= form_for([current_user, @user_food_record]) do |f| %>
+  <%= f.label :item %>
+  <%= f.text_field :item %>
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity %><br />
+  <%= f.label :intake_date %>
+  <%= f.date_field :intake_date %><br />
+  <%= f.submit "compute calories" %>
+<% end %>
