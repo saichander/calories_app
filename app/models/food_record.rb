@@ -3,7 +3,6 @@ class FoodRecord < ActiveRecord::Base
   after_create :compute_calories
 
   def compute_calories
-    byebug
     @food_record = User.find_by(id: user_id).food_records.last
     if @food_record.calculated_calories.nil?
       @item = FoodItem.find_by(item: @food_record.item)

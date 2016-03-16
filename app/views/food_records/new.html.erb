@@ -1,6 +1,6 @@
 <%= form_for([current_user, @user_food_record]) do |f| %>
   <%= f.label :item %>
-  <%= f.text_field :item %>
+  <%= f.select("item",FoodItem.all.collect {|a| a.item },prompt: "Select item") %><br />
   <%= f.label :quantity %>
   <%= f.number_field :quantity %><br />
   <%= f.label :intake_date %>
