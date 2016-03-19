@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+  root 'static_pages#home'
 
+
+  get 'workouts/new'
 
   devise_for :users
-  root 'static_pages#home'
 
   devise_scope :user do
     get "/login" => "devise/sessions#new"
@@ -18,7 +20,8 @@ Rails.application.routes.draw do
   end
 
   resources :food_items
-  get "/food_items" => "food_items#index"
+  resources :workouts
+  #get "/food_items" => "food_items#index"
   #get "/body_metrics" =>  'body_metrics#new'
   #resources :body_metrics
   #get "/show_body_metrics" => 'body_metrics#show'

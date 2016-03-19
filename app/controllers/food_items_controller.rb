@@ -6,8 +6,13 @@ class FoodItemsController < ApplicationController
 
   def create
     @food_item = FoodItem.create(food_item_params)
-    flash.now[:success] = "done"
-    redirect_to food_items_path
+    if @food_item.save
+      flash.now[:success] = "done"
+      redirect_to food_items_path
+    else
+      @food_items_list = FoodItem.all
+      render 'index'
+    end
   end
 
   def new

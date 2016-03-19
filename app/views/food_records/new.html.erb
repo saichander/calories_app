@@ -1,4 +1,5 @@
-<%= form_for([current_user, @user_food_record]) do |f| %>
+<%= form_for([current_user, @user_food_record],:class => "form-horizontal") do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <%= f.label :item %>
   <%= f.select("item",FoodItem.all.collect {|a| a.item },prompt: "Select item") %><br />
   <%= f.label :quantity %>
