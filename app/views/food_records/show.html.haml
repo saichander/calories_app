@@ -1,0 +1,12 @@
+You gained #{@food_record.calculated_calories} calories by consuming #{@food_record.item}
+%h3 Todays Food Record
+%table.table{:border => "1"}
+  %tr
+    %th Item
+    %th Quantity
+    %th Calories
+  - @food_list.each do |food_record|
+    %tr
+      %td= food_record.item
+      %td= food_record.quantity
+      %td= food_record.calculated_calories

@@ -1,0 +1,25 @@
+.row
+  .col-md-6.col-md-offset-3
+    = form_for([current_user, @user_body_metric],class: 'form-horizontal') do |f|
+      = render 'shared/error_messages', object: f.object
+      = f.label :height, class: 'control-label'
+      = f.number_field :height,:placeholder => "in centi-meters", class: 'form-control'
+      = f.label :weight, class: 'control-label'
+      = f.number_field :weight,:placeholder => "in kilo grams", class: 'form-control'
+      %h4 Activity Level
+      = f.radio_button :activity_level, '1.2'
+      = f.label :activity_level, ' Sedentary', class: 'control-label'
+      %br/
+      = f.radio_button :activity_level, '1.375'
+      = f.label :activity_level, 'Less Active', class: 'control-label'
+      %br/
+      = f.radio_button :activity_level, '1.55'
+      = f.label :activity_level, 'Moderately Active', class: 'control-label'
+      %br/
+      = f.radio_button :activity_level, '1.725'
+      = f.label :activity_level, 'Very Active', class: 'control-label'
+      %br/
+      = f.radio_button :activity_level, '1.9'
+      = f.label :activity_level, 'Extremely Active', class: 'control-label'
+      %br/
+      = f.submit "Calculate TDEE"

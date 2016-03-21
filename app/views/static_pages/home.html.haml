@@ -1,0 +1,42 @@
+.home-main
+  - if user_signed_in?
+    .left_menu
+      %nav.main_list
+        %ul
+          %li= link_to "TDEE calculator", edit_user_body_metric_path(current_user.id,current_user.body_metric.id)
+          %li= link_to "Food List", food_items_path
+          - if current_user.admin?
+            %li= link_to "Workout Videos", new_workout_path
+          - else
+            %li= link_to "Workout Videos", workouts_path
+          %li= link_to "Food Record",  new_user_food_record_path(current_user.id)
+    %p
+      Welcome #{current_user.email}
+    .home-calories
+      %p
+        %b Calories intake
+        %br/
+        = @complete_food_record =  current_user.food_records.where(:intake_date => Date.today).sum(:calculated_calories)
+    .home-calories
+      - @body_metric = BodyMetric.find_by(user_id: current_user.id)
+      - if @body_metric.nil?
+      - else
+        %p
+          %b Calories required
+          %br/
+          = @req_calories = @body_metric.calories_required
+    %br/
+    - @calc_width = @complete_food_record.to_f/@req_calories.to_f*100
+    %p Progress
+    .progress
+      .progress-bar{"aria-valuemax" => "#{@req_calories}", "aria-valuemin" => "0", "aria-valuenow" => "#{@complete_food_record}", :role => "progressbar", :style => "width:#{@calc_width.to_f}%;"}
+        %span
+          = @calc_width.to_i
+          \% Complete
+    = link_to '<i class = "glyphicon glyphicon-plus"> Add Food Record</i>'.html_safe, new_user_food_record_path(current_user.id)
+    %p
+      Check #{link_to 'FoodList', food_items_path} to eat something
+  - else
+    .home
+      %h1 Count Your Calories for a Healthier Lifestyle.
+      = link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary sign"

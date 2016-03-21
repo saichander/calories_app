@@ -1,0 +1,6 @@
+- if current_user.admin?
+  %p
+    Click #{link_to 'here', new_workout_path} to add more videos.
+- @workout.each do |workout|
+  = workout.name
+  = video_tag(workout.video_url.to_s, controls: true,size: "330")

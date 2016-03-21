@@ -1,0 +1,29 @@
+%body
+  %header.navbar.navbar-fixed-top.navbar-inverse
+    .header_container
+      = link_to "Calories", root_path, id: "logo"
+      %nav
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            = link_to "Home",   root_path
+            - if user_signed_in?
+              %ul
+                = link_to   edit_user_body_metric_path(current_user.id,current_user.body_metric.id) do
+                  %li TDEE calculator
+                = link_to food_items_path do
+                  %li Food List
+                - if current_user.admin?
+                  = link_to new_workout_path do
+                    %li Workout Videos
+                - else
+                  = link_to  workouts_path do
+                    %li Workout Videos
+                = link_to new_user_food_record_path(current_user.id) do
+                  %li Food Record
+          - if user_signed_in?
+            %li
+              = link_to "Sign out", destroy_user_session_path, :method => :delete
+          - else
+            %li= link_to "Login", login_path
+          %li= link_to "About", '#'
+          %li= link_to "Contact Us",'#'

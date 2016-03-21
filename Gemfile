@@ -27,7 +27,7 @@ gem 'bootstrap-sass', '3.2.0.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '3.5.6'
 gem 'carrierwave'
-gem 'html2haml'
+gem 'haml-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
