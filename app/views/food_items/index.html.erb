@@ -1,9 +1,10 @@
+<div class="bg_food_list">
 <% if current_user.admin? %>
   <%= render 'new' %>
 <% else %>
   <h1>Food Items list along with calories</h1>
 <% end %>
-<table cellspacing="50" border="1">
+<table class = "table" cellspacing="50" border="1">
   <tr>
     <th>Item</th>
     <th>Quantity</th>
@@ -19,3 +20,4 @@
     </tr>
   <% end %>
 </table>
+</div>

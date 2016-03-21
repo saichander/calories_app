@@ -21,6 +21,6 @@ class FoodRecordsController < ApplicationController
   private
 
   def food_record_params
-    params.require(:food_record).permit(:item, :quantity, :intake_date)
+    params.require(:food_record).permit(:item, :quantity, :intake_date, :calculated_calories)
   end
 end

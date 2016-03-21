@@ -1,12 +1,12 @@
-<%= form_for(@food_item) do |f|%>
-  <%= render 'shared/error_messages', object: f.object %> 
-  <%= f.label :item %>
+<%= form_for(@food_item, class: 'form-horizontal') do |f|%>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.label :item, class: 'control-label' %>
   <%= f.text_field :item %><br />
-  <%= f.label :quantity%>
+  <%= f.label :quantity, class: 'control-label'%>
   <%= f.number_field :quantity %><br />
-  <%= f.label :metrics%>
+  <%= f.label :metrics, class: 'control-label'%>
   <%= f.text_field :metrics %><br />
-  <%= f.label :calories %>
+  <%= f.label :calories, class: 'control-label' %>
   <%= f.number_field :calories %><br />
   <%= f.submit "Add Food Item" %>
 <% end %>

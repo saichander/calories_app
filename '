@@ -23,7 +23,6 @@ nav ul li:first-child:hover ul li{
   padding-left:20px;
   margin:0;
   border:solid #000 1px;
-  text-decoration: none;
 }
 /* header */
 #logo{
@@ -100,9 +99,6 @@ p{
 
   padding-top:15px;
 }
-i.glyphicon.glyphicon-plus {
-      word-spacing: -8px;
-    }
 .home-calories{
 background-color:#EEEEEE;
 border-radius:2px;
@@ -126,7 +122,6 @@ display:inline-block;
   left: 0;
   top: -37px;;
 }
-/*.home-main{
-background-image: url("bg.jpg");
-background-size: 100% 100%;
-}*/
+.bg_food_list{
+background-image: "bg.jpg";
+}

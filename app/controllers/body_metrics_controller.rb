@@ -19,6 +19,17 @@ class BodyMetricsController < ApplicationController
     render 'show'
   end
 
+  def edit
+    @user_body_metric_edit = BodyMetric.find_by(user_id: current_user.id)
+  end
+
+  def update
+    @user_body_metric_edit = BodyMetric.find_by(user_id: current_user.id)
+    @user_body_metric_edit.update_attributes(body_metric_params)
+    flash[:updated] = "Updated Successfully"
+    redirect_to user_body_metric_path(current_user.id,@user_body_metric_edit.id)
+  end
+
   private
 
   def body_metric_params

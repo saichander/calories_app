@@ -2,8 +2,8 @@ class BodyMetric < ActiveRecord::Base
   belongs_to :user
   after_create :calc_calories
 
-  validates :height, presence: true, numericality: {only_integer: true} if !:height.blank?
-  validates :weight, presence: true, numericality: {only_integer: true}
+  validates :height, presence: true, numericality: {only_integer: true, :allow_blank => true}
+  validates :weight, presence: true, numericality: {only_integer: true, :allow_blank => true}
   validates :activity_level, inclusion: [1.2,1.375,1.55,1.725,1.9]
 
 

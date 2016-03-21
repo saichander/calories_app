@@ -5,18 +5,18 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
           <%= link_to "Home",   root_path %>
-            <% if user_signed_in? %>
-          <ul>
-            <li><%= link_to "TDEE calculator",new_user_body_metric_path(current_user.id) %></li>
-            <li><%= link_to "Food List", food_items_path %></li>
-            <% if current_user.admin? %>
-              <li><%= link_to "Workout Videos", new_workout_path %></li>
-            <% else %>
-              <li><%= link_to "Workout Videos", workouts_path %></li>
-            <% end %>
-            <li><%= link_to "Food Record",  new_user_food_record_path(current_user.id) %></li>
-          </ul>
-        <% end %>
+          <% if user_signed_in? %>
+            <ul>
+              <%= link_to   edit_user_body_metric_path(current_user.id,current_user.body_metric.id) do  %><li>TDEE calculator</li><% end %>
+              <%= link_to food_items_path do  %><li>Food List</li><% end %>
+              <% if current_user.admin? %>
+                <%= link_to new_workout_path do  %><li>Workout Videos</li><% end %>
+              <% else %>
+                <%= link_to  workouts_path do  %><li>Workout Videos</li><% end %>
+              <% end %>
+              <%= link_to new_user_food_record_path(current_user.id) do  %><li>Food Record</li><% end %>
+            </ul>
+          <% end %>
         </li>
         <%if user_signed_in? %>
           <li> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
