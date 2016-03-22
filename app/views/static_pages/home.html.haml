@@ -33,9 +33,10 @@
         %span
           = @calc_width.to_i
           \% Complete
-    = link_to '<i class = "glyphicon glyphicon-plus"> Add Food Record</i>'.html_safe, new_user_food_record_path(current_user.id)
     %p
       Check #{link_to 'FoodList', food_items_path} to eat something
+    = link_to '<i class = "glyphicon glyphicon-plus"> Add Food Record</i>'.html_safe, new_user_food_record_path(current_user.id)
+    = render :template => 'food_records/show'                      |
   - else
     .home
       %h1 Count Your Calories for a Healthier Lifestyle.

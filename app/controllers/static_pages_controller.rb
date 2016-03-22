@@ -1,7 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
-    if user_signed_in? && current_user.sign_in_count == 0
-      redirect_to  new_user_body_metric_path
+    if user_signed_in?
+    @food_record = current_user.food_records.last
+    @food_list = current_user.food_records.where(intake_date: Date.today)
     end
   end
 end

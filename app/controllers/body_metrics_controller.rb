@@ -25,9 +25,12 @@ class BodyMetricsController < ApplicationController
 
   def update
     @user_body_metric_edit = BodyMetric.find_by(user_id: current_user.id)
-    @user_body_metric_edit.update_attributes(body_metric_params)
+   if @user_body_metric_edit.update_attributes(body_metric_params)
     flash[:updated] = "Updated Successfully"
     redirect_to user_body_metric_path(current_user.id,@user_body_metric_edit.id)
+   else
+     redirect_to edit_user_body_metric_path(current_user.id,@user_body_metric_edit.id)
+   end
   end
 
   private

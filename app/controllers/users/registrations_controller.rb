@@ -2,6 +2,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_sign_up_path_for(current_user)
+    byebug
     new_user_body_metric_path(current_user.id)
   end
 # before_filter :configure_sign_up_params, only: [:create]

@@ -1,0 +1,13 @@
+= form_for([current_user, @user_food_record_edit],:class => "form-horizontal") do |f|
+  = render 'shared/error_messages', object: f.object
+  = f.label :item, class: 'control-label'
+  = f.select("item",FoodItem.all.collect {|a| a.item },prompt: "Select item")
+  %br/
+  = f.label :quantity, class: 'control-label'
+  = f.number_field :quantity
+  %br/
+  = f.label :intake_date, class: 'control-label'
+  = f.date_field :intake_date
+  %br/
+  = f.submit "compute calories"
+

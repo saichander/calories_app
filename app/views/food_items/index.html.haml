@@ -8,11 +8,14 @@
       %th Item
       %th Quantity
       %th Metrics
-      %th
-        Calories
+      %th Calories
+      - if current_user.admin?
+        %th Edit
     - @food_items_list.each do |food_item|
       %tr
         %td= food_item.item
         %td= food_item.quantity
         %td= food_item.metrics
         %td= food_item.calories
+        - if current_user.admin?
+          %td= link_to 'edit', edit_food_item_path(food_item.id)
